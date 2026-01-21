@@ -21,7 +21,7 @@ const features = [
   {
     icon: Users,
     title: 'Tam Destek',
-    description: 'Açılıştan operasyona kadar her adımda yanınızdayız',
+    description: 'çılıştan operasyona kadar her adımda yanınızdayız',
   },
 ];
 

@@ -22,13 +22,13 @@ export interface FormData {
 export const sendApplicationEmail = async (data: FormData): Promise<void> => {
   // Admin'e bildirim gönder
   const adminParams = {
-    name: data.fullName,
-    email: data.email,
+    from_name: data.fullName,
+    from_email: data.email,
     phone: data.phone,
     location: data.location,
-    budget: data.investmentBudget,
-    experience: data.businessExperience || 'Belirtilmedi',
-    notes: data.additionalNotes || 'Belirtilmedi',
+    investment_budget: data.investmentBudget,
+    business_experience: data.businessExperience || 'Belirtilmedi',
+    additional_notes: data.additionalNotes || 'Belirtilmedi',
   };
 
   await emailjs.send(
@@ -41,7 +41,7 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
   // Kullanıcıya onay maili gönder
   const userParams = {
     to_email: data.email,
-    name: data.fullName,
+    from_name: data.fullName,
   };
 
   await emailjs.send(

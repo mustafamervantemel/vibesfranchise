@@ -2,25 +2,23 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CheckCircle2, Sparkles, Send } from 'lucide-react';
 import { sendApplicationEmail, FormData } from '../lib/emailjs';
-
-const ISTANBUL_ILCELER = [
-  'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler',
-  'Bakırköy', 'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü',
-  'Beyoğlu', 'Büyükçekmece', 'Çatalca', 'Çekmeköy', 'Esenler', 'Esenyurt',
-  'Eyüpsultan', 'Fatih', 'Gaziosmanpaşa', 'Güngören', 'Kadıköy', 'Kağıthane',
-  'Kartal', 'Küçükçekmece', 'Maltepe', 'Pendik', 'Sancaktepe', 'Sarıyer',
-  'Silivri', 'Sultanbeyli', 'Sultangazi', 'Şile', 'Şişli', 'Tuzla',
-  'Ümraniye', 'Üsküdar', 'Zeytinburnu'
-];
+import { TURKIYE_ILLER, IL_LISTESI } from '../data/turkiye-iller';
 
 const formatPhoneNumber = (value: string): string => {
-  const numbers = value.replace(/\D/g, '');
+  let numbers = value.replace(/\D/g, '');
+
+  // Başındaki 0'ı kaldır (biz ekleyeceğiz)
+  if (numbers.startsWith('0')) {
+    numbers = numbers.slice(1);
+  }
+
   const limited = numbers.slice(0, 10);
 
-  if (limited.length <= 3) return limited;
-  if (limited.length <= 6) return `${limited.slice(0, 3)} ${limited.slice(3)}`;
-  if (limited.length <= 8) return `${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6)}`;
-  return `${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6, 8)} ${limited.slice(8)}`;
+  if (limited.length === 0) return '';
+  if (limited.length <= 3) return `0${limited}`;
+  if (limited.length <= 6) return `0${limited.slice(0, 3)} ${limited.slice(3)}`;
+  if (limited.length <= 8) return `0${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6)}`;
+  return `0${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6, 8)} ${limited.slice(8)}`;
 };
 
 export default function ApplicationForm() {
@@ -157,7 +155,7 @@ export default function ApplicationForm() {
                   onFocus={() => setFocusedField('phone')}
                   onBlur={() => setFocusedField(null)}
                   className={inputClasses('phone', !!errors.phone)}
-                  placeholder="555 123 45 67"
+                  placeholder="0555 123 45 67"
                 />
                 <input type="hidden" {...register('phone', { required: 'Telefon numarası gereklidir' })} />
                 {errors.phone && (
@@ -212,7 +210,11 @@ export default function ApplicationForm() {
                   className={inputClasses('il', !selectedIl && !!errors.location)}
                 >
                   <option value="" className="bg-[var(--bg-tertiary)]">İl Seçiniz</option>
-                  <option value="İstanbul" className="bg-[var(--bg-tertiary)]">İstanbul</option>
+                  {IL_LISTESI.map((il) => (
+                    <option key={il} value={il} className="bg-[var(--bg-tertiary)]">
+                      {il}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -231,8 +233,8 @@ export default function ApplicationForm() {
                   <option value="" className="bg-[var(--bg-tertiary)]">
                     {selectedIl ? 'İlçe Seçiniz' : 'Önce il seçiniz'}
                   </option>
-                  {selectedIl === 'İstanbul' && ISTANBUL_ILCELER.map((ilce) => (
-                    <option key={ilce} value={`İstanbul / ${ilce}`} className="bg-[var(--bg-tertiary)]">
+                  {selectedIl && TURKIYE_ILLER[selectedIl]?.map((ilce) => (
+                    <option key={ilce} value={`${selectedIl} / ${ilce}`} className="bg-[var(--bg-tertiary)]">
                       {ilce}
                     </option>
                   ))}

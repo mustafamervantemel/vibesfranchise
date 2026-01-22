@@ -3,7 +3,6 @@ import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ApplicationForm from './components/ApplicationForm';
-import BranchesMap from './components/BranchesMap';
 import Footer from './components/Footer';
 
 function AppContent() {
@@ -20,7 +19,6 @@ function AppContent() {
       <div ref={applicationRef}>
         <ApplicationForm />
       </div>
-      <BranchesMap />
       <Footer />
     </div>
   );

@@ -80,7 +80,7 @@ export default function ApplicationForm() {
   }
 
   const inputClasses = (fieldName: string, hasError: boolean) => `
-    w-full px-5 py-4 border-2 rounded-xl transition-all duration-300
+    w-full px-5 py-4 border-2 rounded-2xl transition-all duration-300
     bg-[var(--bg-tertiary)] text-[var(--text-primary)] placeholder-[var(--text-tertiary)]
     ${hasError
       ? 'border-red-500/50 bg-red-500/10 animate-wiggle'
@@ -113,7 +113,7 @@ export default function ApplicationForm() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="gradient-border bg-[var(--bg-card)] rounded-3xl shadow-2xl p-6 sm:p-10 clip-reveal-up stagger-2"
+          className="gradient-border bg-[var(--bg-card)] rounded-[2rem] shadow-2xl p-6 sm:p-10 clip-reveal-up stagger-2"
         >
           <div className="space-y-6">
             {/* Ad Soyad */}

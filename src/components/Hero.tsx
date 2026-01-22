@@ -1,4 +1,4 @@
-import { Sandwich, TrendingUp, Users, ChefHat, Award, Clock } from 'lucide-react';
+import { Sandwich, TrendingUp, Users, ChefHat, Clock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const stats = [
@@ -124,7 +124,7 @@ export default function Hero() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`card-3d gradient-border-hover bg-[var(--bg-card)] rounded-2xl p-8 clip-reveal-up stagger-${index + 5}`}
+              className={`card-3d gradient-border-hover bg-[var(--bg-card)] rounded-3xl p-8 clip-reveal-up stagger-${index + 5}`}
             >
               <div className="icon-container bg-gradient-to-br from-[#E62429] to-[#C41E22] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/20">
                 <feature.icon className="text-white" size={32} />
@@ -137,10 +137,6 @@ export default function Hero() {
 
         {/* Bottom Badges */}
         <div className="flex flex-wrap justify-center gap-4 clip-reveal-up stagger-6">
-          <div className="flex items-center gap-2 gradient-border bg-[var(--bg-card)] px-4 py-2 rounded-full">
-            <Award className="text-[#E62429]" size={20} />
-            <span className="text-sm font-medium text-[var(--text-secondary)]">Ödüllü Lezzet</span>
-          </div>
           <div className="flex items-center gap-2 gradient-border bg-[var(--bg-card)] px-4 py-2 rounded-full">
             <Clock className="text-[#E62429]" size={20} />
             <span className="text-sm font-medium text-[var(--text-secondary)]">Hızlı Kurulum</span>

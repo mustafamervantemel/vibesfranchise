@@ -1,16 +1,10 @@
 import emailjs from '@emailjs/browser';
 
 // EmailJS Configuration
-// Bu değerleri EmailJS hesabınızdan almanız gerekiyor:
-// 1. https://www.emailjs.com adresine gidin
-// 2. Hesap oluşturun (ücretsiz)
-// 3. Email Services > Add New Service > Gmail veya diğer
-// 4. Email Templates > Create New Template
-// 5. Account > General > Public Key
-
-export const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';  // Email Services'dan alın
-export const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Email Templates'dan alın
-export const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';   // Account > General'dan alın
+export const EMAILJS_SERVICE_ID = 'service_o7fxcmv';
+export const EMAILJS_ADMIN_TEMPLATE_ID = 'template_c585dqq';  // Admin bildirim template'i
+export const EMAILJS_USER_TEMPLATE_ID = 'template_z401kgn';   // Kullanıcı onay template'i
+export const EMAILJS_PUBLIC_KEY = 'r1dzQpZMdBK7gRWyF';
 
 // EmailJS'i initialize et
 emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -26,8 +20,8 @@ export interface FormData {
 }
 
 export const sendApplicationEmail = async (data: FormData): Promise<void> => {
-  const templateParams = {
-    to_email: 'info@vibessandwich.com', // Başvuruların gönderileceği mail adresi
+  const adminParams = {
+    to_email: 'info@vibessandwich.com',
     from_name: data.fullName,
     from_email: data.email,
     phone: data.phone,
@@ -37,7 +31,7 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
     additional_notes: data.additionalNotes || 'Belirtilmedi',
     message: `
       Yeni Franchise Başvurusu:
-      
+
       Ad Soyad: ${data.fullName}
       Telefon: ${data.phone}
       E-posta: ${data.email}
@@ -48,10 +42,24 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
     `,
   };
 
+  const userParams = {
+    to_email: data.email,
+    to_name: data.fullName,
+  };
+
+  // Admin'e bildirim gönder
   await emailjs.send(
     EMAILJS_SERVICE_ID,
-    EMAILJS_TEMPLATE_ID,
-    templateParams,
+    EMAILJS_ADMIN_TEMPLATE_ID,
+    adminParams,
+    EMAILJS_PUBLIC_KEY
+  );
+
+  // Kullanıcıya onay maili gönder
+  await emailjs.send(
+    EMAILJS_SERVICE_ID,
+    EMAILJS_USER_TEMPLATE_ID,
+    userParams,
     EMAILJS_PUBLIC_KEY
   );
 };

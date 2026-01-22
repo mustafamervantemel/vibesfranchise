@@ -3,13 +3,36 @@ import { useForm } from 'react-hook-form';
 import { CheckCircle2, Sparkles, Send } from 'lucide-react';
 import { sendApplicationEmail, FormData } from '../lib/emailjs';
 
+const ISTANBUL_ILCELER = [
+  'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler',
+  'Bakırköy', 'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü',
+  'Beyoğlu', 'Büyükçekmece', 'Çatalca', 'Çekmeköy', 'Esenler', 'Esenyurt',
+  'Eyüpsultan', 'Fatih', 'Gaziosmanpaşa', 'Güngören', 'Kadıköy', 'Kağıthane',
+  'Kartal', 'Küçükçekmece', 'Maltepe', 'Pendik', 'Sancaktepe', 'Sarıyer',
+  'Silivri', 'Sultanbeyli', 'Sultangazi', 'Şile', 'Şişli', 'Tuzla',
+  'Ümraniye', 'Üsküdar', 'Zeytinburnu'
+];
+
+const formatPhoneNumber = (value: string): string => {
+  const numbers = value.replace(/\D/g, '');
+  const limited = numbers.slice(0, 10);
+
+  if (limited.length <= 3) return limited;
+  if (limited.length <= 6) return `${limited.slice(0, 3)} ${limited.slice(3)}`;
+  if (limited.length <= 8) return `${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6)}`;
+  return `${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6, 8)} ${limited.slice(8)}`;
+};
+
 export default function ApplicationForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [selectedIl, setSelectedIl] = useState('');
+  const [phoneDisplay, setPhoneDisplay] = useState('');
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormData>();
 
@@ -125,12 +148,18 @@ export default function ApplicationForm() {
                 <input
                   id="phone"
                   type="tel"
-                  {...register('phone', { required: 'Telefon numarası gereklidir' })}
+                  value={phoneDisplay}
+                  onChange={(e) => {
+                    const formatted = formatPhoneNumber(e.target.value);
+                    setPhoneDisplay(formatted);
+                    setValue('phone', formatted);
+                  }}
                   onFocus={() => setFocusedField('phone')}
                   onBlur={() => setFocusedField(null)}
                   className={inputClasses('phone', !!errors.phone)}
-                  placeholder="0555 123 4567"
+                  placeholder="555 123 45 67"
                 />
+                <input type="hidden" {...register('phone', { required: 'Telefon numarası gereklidir' })} />
                 {errors.phone && (
                   <p className="mt-2 text-sm text-red-400 flex items-center gap-1">
                     <span>⚠️</span> {errors.phone.message}
@@ -166,20 +195,48 @@ export default function ApplicationForm() {
             </div>
 
             {/* Location & Budget Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="group">
+                <label htmlFor="il" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                  İl *
+                </label>
+                <select
+                  id="il"
+                  value={selectedIl}
+                  onChange={(e) => {
+                    setSelectedIl(e.target.value);
+                    setValue('location', '');
+                  }}
+                  onFocus={() => setFocusedField('il')}
+                  onBlur={() => setFocusedField(null)}
+                  className={inputClasses('il', !selectedIl && !!errors.location)}
+                >
+                  <option value="" className="bg-[var(--bg-tertiary)]">İl Seçiniz</option>
+                  <option value="İstanbul" className="bg-[var(--bg-tertiary)]">İstanbul</option>
+                </select>
+              </div>
+
               <div className="group">
                 <label htmlFor="location" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
-                  İl / İlçe *
+                  İlçe *
                 </label>
-                <input
+                <select
                   id="location"
-                  type="text"
-                  {...register('location', { required: 'Hedef lokasyon gereklidir' })}
+                  {...register('location', { required: 'İlçe seçimi gereklidir' })}
+                  disabled={!selectedIl}
                   onFocus={() => setFocusedField('location')}
                   onBlur={() => setFocusedField(null)}
-                  className={inputClasses('location', !!errors.location)}
-                  placeholder="İstanbul / Kadıköy"
-                />
+                  className={`${inputClasses('location', !!errors.location)} ${!selectedIl ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  <option value="" className="bg-[var(--bg-tertiary)]">
+                    {selectedIl ? 'İlçe Seçiniz' : 'Önce il seçiniz'}
+                  </option>
+                  {selectedIl === 'İstanbul' && ISTANBUL_ILCELER.map((ilce) => (
+                    <option key={ilce} value={`İstanbul / ${ilce}`} className="bg-[var(--bg-tertiary)]">
+                      {ilce}
+                    </option>
+                  ))}
+                </select>
                 {errors.location && (
                   <p className="mt-2 text-sm text-red-400 flex items-center gap-1">
                     <span>⚠️</span> {errors.location.message}

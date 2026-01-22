@@ -20,34 +20,17 @@ export interface FormData {
 }
 
 export const sendApplicationEmail = async (data: FormData): Promise<void> => {
+  // Admin'e bildirim gönder
   const adminParams = {
-    to_email: 'info@vibessandwich.com',
-    from_name: data.fullName,
-    from_email: data.email,
+    name: data.fullName,
+    email: data.email,
     phone: data.phone,
     location: data.location,
-    investment_budget: data.investmentBudget,
-    business_experience: data.businessExperience || 'Belirtilmedi',
-    additional_notes: data.additionalNotes || 'Belirtilmedi',
-    message: `
-      Yeni Franchise Başvurusu:
-
-      Ad Soyad: ${data.fullName}
-      Telefon: ${data.phone}
-      E-posta: ${data.email}
-      Lokasyon: ${data.location}
-      Yatırım Bütçesi: ${data.investmentBudget}
-      İş Tecrübesi: ${data.businessExperience || 'Belirtilmedi'}
-      Ek Notlar: ${data.additionalNotes || 'Belirtilmedi'}
-    `,
+    budget: data.investmentBudget,
+    experience: data.businessExperience || 'Belirtilmedi',
+    notes: data.additionalNotes || 'Belirtilmedi',
   };
 
-  const userParams = {
-    to_email: data.email,
-    to_name: data.fullName,
-  };
-
-  // Admin'e bildirim gönder
   await emailjs.send(
     EMAILJS_SERVICE_ID,
     EMAILJS_ADMIN_TEMPLATE_ID,
@@ -56,6 +39,11 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
   );
 
   // Kullanıcıya onay maili gönder
+  const userParams = {
+    to_email: data.email,
+    name: data.fullName,
+  };
+
   await emailjs.send(
     EMAILJS_SERVICE_ID,
     EMAILJS_USER_TEMPLATE_ID,

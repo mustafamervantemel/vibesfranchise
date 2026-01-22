@@ -31,12 +31,18 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
     additional_notes: data.additionalNotes || 'Belirtilmedi',
   };
 
-  await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_ADMIN_TEMPLATE_ID,
-    adminParams,
-    EMAILJS_PUBLIC_KEY
-  );
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_ADMIN_TEMPLATE_ID,
+      adminParams,
+      EMAILJS_PUBLIC_KEY
+    );
+    console.log('Admin mail gönderildi');
+  } catch (error) {
+    console.error('Admin mail hatası:', error);
+    throw error;
+  }
 
   // Kullanıcıya onay maili gönder
   const userParams = {
@@ -44,10 +50,16 @@ export const sendApplicationEmail = async (data: FormData): Promise<void> => {
     from_name: data.fullName,
   };
 
-  await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_USER_TEMPLATE_ID,
-    userParams,
-    EMAILJS_PUBLIC_KEY
-  );
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_USER_TEMPLATE_ID,
+      userParams,
+      EMAILJS_PUBLIC_KEY
+    );
+    console.log('User mail gönderildi');
+  } catch (error) {
+    console.error('User mail hatası:', error);
+    throw error;
+  }
 };

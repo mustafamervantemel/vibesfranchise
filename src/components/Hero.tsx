@@ -1,10 +1,11 @@
-import { Sandwich, TrendingUp, Users, ChefHat, Clock } from 'lucide-react';
+import { Sandwich, TrendingUp, Users, ChefHat, Clock, ThumbsUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const stats = [
-  { value: 50, suffix: '+', label: 'Şube' },
-  { value: 10, suffix: 'K+', label: 'Mutlu Müşteri' },
-  { value: 5, suffix: ' Yıl', label: 'Tecrübe' },
+  { value: 25840, suffix: '+', label: 'MUTLU ZİYARETÇİ', icon: Users },
+  { value: 25, suffix: '+', label: 'UZMAN ŞEF', icon: ChefHat },
+  { value: 75, suffix: '+', label: 'ZENGİN MENÜ', icon: Sandwich },
+  { value: 4.9, suffix: '', label: 'ZİYARETÇİ PUANLAMASI', icon: ThumbsUp },
 ];
 
 const features = [
@@ -47,7 +48,7 @@ const AnimatedCounter = ({ end, suffix }: { end: number; suffix: string }) => {
   }, [end]);
 
   return (
-    <span className="gradient-text font-bold text-4xl sm:text-5xl">
+    <span className="">
       {count}{suffix}
     </span>
   );
@@ -108,15 +109,31 @@ export default function Hero() {
         </div>
 
         {/* Stats Section */}
-        <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mb-16 clip-reveal-up stagger-4">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-              <div className="text-[var(--text-tertiary)] font-medium mt-2 group-hover:text-[#E62429] transition-colors">
-                {stat.label}
+        <div className="bg-[#C41E22] rounded-3xl p-8 sm:p-12 mb-16 relative overflow-hidden clip-reveal-up stagger-4 shadow-xl">
+          {/* Center Vertical Separator */}
+          <div className="absolute left-1/2 top-8 bottom-8 -translate-x-1/2 hidden md:flex flex-col items-center justify-center">
+            <div className="h-full border-l-2 border-dotted border-white/40"></div>
+            <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 transform"></div>
+          </div>
+
+          {/* Mobile Separator (Horizontal) */}
+          {/* Keeping it simple for mobile, standard grid gap */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+            {stats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="text-[#C41E22]" size={40} strokeWidth={1.5} />
+                </div>
+                <div className="font-black text-3xl sm:text-4xl text-black mb-1 tracking-tight">
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-black font-bold uppercase tracking-wide text-sm sm:text-base">
+                  {stat.label}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Feature Cards */}

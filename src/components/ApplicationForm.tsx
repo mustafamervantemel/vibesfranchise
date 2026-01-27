@@ -51,16 +51,16 @@ export default function ApplicationForm() {
 
   if (isSubmitted) {
     return (
-      <section id="application" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg-primary)] transition-colors duration-300">
+      <section id="application" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-2xl mx-auto">
-          <div className="gradient-border bg-[var(--bg-card)] rounded-3xl p-8 sm:p-12 text-center animate-scale-in">
-            <div className="success-checkmark bg-gradient-to-br from-green-400 to-emerald-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-green-500/30">
+          <div className="bg-white border border-gray-200 rounded-3xl p-8 sm:p-12 text-center shadow-xl">
+            <div className="bg-gradient-to-br from-green-400 to-emerald-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-green-500/30">
               <CheckCircle2 className="text-white" size={56} />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-4">
               🎉 Başvurunuz Alındı!
             </h2>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Başvurunuz başarıyla alındı! Ekibimiz en kısa sürede sizinle iletişime geçecektir.
             </p>
             <div className="mt-8 flex justify-center gap-2">
@@ -81,44 +81,44 @@ export default function ApplicationForm() {
 
   const inputClasses = (fieldName: string, hasError: boolean) => `
     w-full px-5 py-4 border-2 rounded-2xl transition-all duration-300
-    bg-[var(--bg-tertiary)] text-[var(--text-primary)] placeholder-[var(--text-tertiary)]
+    bg-gray-50 text-[#1A1A1A] placeholder-gray-400
     ${hasError
-      ? 'border-red-500/50 bg-red-500/10 animate-wiggle'
+      ? 'border-red-500/50 bg-red-500/10'
       : focusedField === fieldName
         ? 'border-[#E62429] shadow-lg shadow-red-500/20'
-        : 'border-[var(--border-color)] hover:border-[var(--text-tertiary)]'
+        : 'border-gray-200 hover:border-gray-300'
     }
     focus:outline-none focus:border-[#E62429] focus:shadow-lg focus:shadow-red-500/20
   `;
 
   return (
-    <section id="application" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg-primary)] relative overflow-hidden transition-colors duration-300">
+    <section id="application" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-500/10 to-red-900/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-red-400/10 to-red-600/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="relative max-w-3xl mx-auto">
-        <div className="text-center mb-12 clip-reveal-up">
-          <div className="inline-flex items-center gap-2 gradient-border bg-[var(--bg-card)] text-[#E62429] px-4 py-2 rounded-full text-sm font-medium mb-4">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#C41E22]/10 text-[#E62429] px-4 py-2 rounded-full text-sm font-medium mb-4 border border-[#C41E22]/20">
             <Send size={16} />
             <span>Hemen Başvurun</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
-            Franchise <span className="gradient-text">Başvuru Formu</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Franchise <span className="text-[#E62429]">Başvuru Formu</span>
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] max-w-xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-xl mx-auto">
             Formu doldurarak Vibes Sandwich franchise fırsatından yararlanın
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="gradient-border bg-[var(--bg-card)] rounded-[2rem] shadow-2xl p-6 sm:p-10 clip-reveal-up stagger-2"
+          className="bg-white border border-gray-200 rounded-[2rem] shadow-2xl p-6 sm:p-10"
         >
           <div className="space-y-6">
             {/* Ad Soyad */}
             <div className="group">
-              <label htmlFor="fullName" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+              <label htmlFor="fullName" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                 Ad Soyad *
               </label>
               <input
@@ -140,7 +140,7 @@ export default function ApplicationForm() {
             {/* Phone & Email Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="group">
-                <label htmlFor="phone" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                   Telefon *
                 </label>
                 <input
@@ -166,7 +166,7 @@ export default function ApplicationForm() {
               </div>
 
               <div className="group">
-                <label htmlFor="email" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                   E-posta *
                 </label>
                 <input
@@ -195,7 +195,7 @@ export default function ApplicationForm() {
             {/* Location & Budget Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="group">
-                <label htmlFor="il" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                <label htmlFor="il" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                   İl *
                 </label>
                 <select
@@ -209,9 +209,9 @@ export default function ApplicationForm() {
                   onBlur={() => setFocusedField(null)}
                   className={inputClasses('il', !selectedIl && !!errors.location)}
                 >
-                  <option value="" className="bg-[var(--bg-tertiary)]">İl Seçiniz</option>
+                  <option value="" className="bg-white">İl Seçiniz</option>
                   {IL_LISTESI.map((il) => (
-                    <option key={il} value={il} className="bg-[var(--bg-tertiary)]">
+                    <option key={il} value={il} className="bg-white">
                       {il}
                     </option>
                   ))}
@@ -219,7 +219,7 @@ export default function ApplicationForm() {
               </div>
 
               <div className="group">
-                <label htmlFor="location" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                <label htmlFor="location" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                   İlçe *
                 </label>
                 <select
@@ -230,11 +230,11 @@ export default function ApplicationForm() {
                   onBlur={() => setFocusedField(null)}
                   className={`${inputClasses('location', !!errors.location)} ${!selectedIl ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  <option value="" className="bg-[var(--bg-tertiary)]">
+                  <option value="" className="bg-white">
                     {selectedIl ? 'İlçe Seçiniz' : 'Önce il seçiniz'}
                   </option>
                   {selectedIl && TURKIYE_ILLER[selectedIl]?.map((ilce) => (
-                    <option key={ilce} value={`${selectedIl} / ${ilce}`} className="bg-[var(--bg-tertiary)]">
+                    <option key={ilce} value={`${selectedIl} / ${ilce}`} className="bg-white">
                       {ilce}
                     </option>
                   ))}
@@ -247,7 +247,7 @@ export default function ApplicationForm() {
               </div>
 
               <div className="group">
-                <label htmlFor="investmentBudget" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+                <label htmlFor="investmentBudget" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                   Yatırım Bütçesi *
                 </label>
                 <select
@@ -257,10 +257,10 @@ export default function ApplicationForm() {
                   onBlur={() => setFocusedField(null)}
                   className={inputClasses('investmentBudget', !!errors.investmentBudget)}
                 >
-                  <option value="" className="bg-[var(--bg-tertiary)]">Seçiniz</option>
-                  <option value="500.000TL - 1M TL" className="bg-[var(--bg-tertiary)]">500.000TL - 1M TL</option>
-                  <option value="1M - 2M TL" className="bg-[var(--bg-tertiary)]">1M - 2M TL</option>
-                  <option value="2M TL+" className="bg-[var(--bg-tertiary)]">2M TL+</option>
+                  <option value="" className="bg-white">Seçiniz</option>
+                  <option value="500.000TL - 1M TL" className="bg-white">500.000TL - 1M TL</option>
+                  <option value="1M - 2M TL" className="bg-white">1M - 2M TL</option>
+                  <option value="2M TL+" className="bg-white">2M TL+</option>
                 </select>
                 {errors.investmentBudget && (
                   <p className="mt-2 text-sm text-red-400 flex items-center gap-1">
@@ -272,7 +272,7 @@ export default function ApplicationForm() {
 
             {/* Business Experience */}
             <div className="group">
-              <label htmlFor="businessExperience" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+              <label htmlFor="businessExperience" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                 İş Tecrübesi
               </label>
               <textarea
@@ -288,7 +288,7 @@ export default function ApplicationForm() {
 
             {/* Additional Notes */}
             <div className="group">
-              <label htmlFor="additionalNotes" className="block text-sm font-semibold text-[var(--text-secondary)] mb-2 transition-colors group-focus-within:text-[#E62429]">
+              <label htmlFor="additionalNotes" className="block text-sm font-semibold text-gray-600 mb-2 transition-colors group-focus-within:text-[#E62429]">
                 Eklemek İstedikleriniz
               </label>
               <textarea

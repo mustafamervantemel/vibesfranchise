@@ -374,6 +374,115 @@ body {
   animation: bounce 2s ease-in-out infinite;
 }
 
+/* ===== FLOATING INGREDIENT ANIMATIONS ===== */
+@keyframes floatIngredient1 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(10deg);
+  }
+}
+
+@keyframes floatIngredient2 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-15deg);
+  }
+}
+
+@keyframes floatIngredient3 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(8deg) scale(1.1);
+  }
+}
+
+@keyframes floatIngredient4 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-12deg);
+  }
+}
+
+.animate-float-ingredient-1 {
+  animation: floatIngredient1 3s ease-in-out infinite;
+}
+
+.animate-float-ingredient-2 {
+  animation: floatIngredient2 3.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-float-ingredient-3 {
+  animation: floatIngredient3 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-ingredient-4 {
+  animation: floatIngredient4 3.2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* ===== SAUCE DRIP ANIMATIONS ===== */
+@keyframes drip1 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(5px) scaleY(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes drip2 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(8px) scaleY(1.3);
+    opacity: 0.9;
+  }
+}
+
+@keyframes drip3 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(6px) scaleY(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-drip-1 {
+  animation: drip1 2s ease-in-out infinite;
+}
+
+.animate-drip-2 {
+  animation: drip2 2.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-drip-3 {
+  animation: drip3 2.2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* ===== HERO SANDWICH GLOW ===== */
+.hero-sandwich-glow {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 60px rgba(230, 36, 41, 0.2));
+}
+
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
 }

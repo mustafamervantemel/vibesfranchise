@@ -1,11 +1,10 @@
 import { useRef } from 'react';
-import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ApplicationForm from './components/ApplicationForm';
 import Footer from './components/Footer';
 
-function AppContent() {
+function App() {
   const applicationRef = useRef<HTMLDivElement>(null);
 
   const scrollToApplication = () => {
@@ -13,7 +12,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] transition-colors duration-300">
+    <div className="min-h-screen bg-white">
       <Header onApplyClick={scrollToApplication} />
       <Hero />
       <div ref={applicationRef}>
@@ -21,14 +20,6 @@ function AppContent() {
       </div>
       <Footer />
     </div>
-  );
-}
-
-function App() {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
   );
 }
 

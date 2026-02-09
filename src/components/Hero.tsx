@@ -83,7 +83,7 @@ export default function Hero() {
         {/* Main Sandwich Image - Responsive: mobile vs desktop */}
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[35%] z-30 pointer-events-none">
           <img
-            src="/pc-san-2.png"
+            src="/mobil-san-1.png"
             alt="Vibes Sandwich"
             className="w-[85vw] sm:w-[400px] md:w-[450px] lg:w-[520px] xl:w-[600px] max-w-none h-auto animate-bounce-subtle"
             style={{

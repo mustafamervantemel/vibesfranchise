@@ -1,25 +1,29 @@
-import { useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import ApplicationForm from './components/ApplicationForm';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Franchise from './pages/Franchise';
+import About from './pages/About';
+import Products from './pages/Products';
+import Contact from './pages/Contact';
 
 function App() {
-  const applicationRef = useRef<HTMLDivElement>(null);
-
-  const scrollToApplication = () => {
-    applicationRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      <Header onApplyClick={scrollToApplication} />
-      <Hero />
-      <div ref={applicationRef}>
-        <ApplicationForm />
+    <Router>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/franchise" element={<Franchise />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 

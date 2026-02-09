@@ -4,6 +4,77 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Utilities & Resets */
+body {
+  cursor: none;
+  /* Custom cursor implementation */
+  background-color: #FFFFFF;
+}
+
+/* Grain Texture */
+.bg-grain {
+  position: relative;
+}
+
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Custom Cursor */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #C41E22;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+}
+
+#cursor.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: #FFFFFF;
+  mix-blend-mode: difference;
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Text Reveal Animation */
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.char {
+  transform: translateY(115%);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.loaded .char {
+  transform: translateY(0);
+}
+
 /* ===== CUSTOM PROPERTIES ===== */
 :root {
   --vibes-red: #E62429;
@@ -18,24 +89,24 @@
   --bg-secondary: #F8F8F8;
   --bg-tertiary: #F0F0F0;
   --bg-card: #FFFFFF;
-  --text-primary: #1A1A1A;
+  --text-primary: #111111;
   --text-secondary: #4A4A4A;
   --text-tertiary: #8A8A8A;
   --border-color: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Colors */
+/* Dark Mode Colors - Overridden to match Light/White Theme request */
 .dark {
-  --bg-primary: #0A0A0A;
-  --bg-secondary: #141414;
-  --bg-tertiary: #1E1E1E;
-  --bg-card: #141414;
-  --text-primary: #FFFFFF;
-  --text-secondary: #CCCCCC;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F8F8;
+  --bg-tertiary: #F0F0F0;
+  --bg-card: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #4A4A4A;
   --text-tertiary: #8A8A8A;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* ===== SMOOTH SCROLLING ===== */
@@ -376,36 +447,48 @@ body {
 
 /* ===== FLOATING INGREDIENT ANIMATIONS ===== */
 @keyframes floatIngredient1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-15px) rotate(10deg);
   }
 }
 
 @keyframes floatIngredient2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-20px) rotate(-15deg);
   }
 }
 
 @keyframes floatIngredient3 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg) scale(1);
   }
+
   50% {
     transform: translateY(-12px) rotate(8deg) scale(1.1);
   }
 }
 
 @keyframes floatIngredient4 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-18px) rotate(-12deg);
   }
@@ -432,10 +515,13 @@ body {
 
 /* ===== SAUCE DRIP ANIMATIONS ===== */
 @keyframes drip1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scaleY(1);
     opacity: 0.8;
   }
+
   50% {
     transform: translateY(5px) scaleY(1.2);
     opacity: 1;
@@ -443,10 +529,13 @@ body {
 }
 
 @keyframes drip2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scaleY(1);
     opacity: 0.7;
   }
+
   50% {
     transform: translateY(8px) scaleY(1.3);
     opacity: 0.9;
@@ -454,10 +543,13 @@ body {
 }
 
 @keyframes drip3 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scaleY(1);
     opacity: 0.8;
   }
+
   50% {
     transform: translateY(6px) scaleY(1.15);
     opacity: 1;

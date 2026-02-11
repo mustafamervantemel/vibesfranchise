@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Hero from '../components/Hero';
-import ApplicationForm from '../components/ApplicationForm';
+import ApplicationForm from '../components/franchise/ApplicationForm';
 
 export default function Franchise() {
     const applicationRef = useRef<HTMLDivElement>(null);

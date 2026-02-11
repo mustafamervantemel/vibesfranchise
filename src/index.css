@@ -6,8 +6,6 @@
 
 /* Custom Utilities & Resets */
 body {
-  cursor: none;
-  /* Custom cursor implementation */
   background-color: #FFFFFF;
 }
 
@@ -28,28 +26,7 @@ body {
   z-index: 1;
 }
 
-/* Custom Cursor */
-#cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #C41E22;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-  mix-blend-mode: difference;
-}
 
-#cursor.hovered {
-  width: 60px;
-  height: 60px;
-  background-color: #FFFFFF;
-  mix-blend-mode: difference;
-}
 
 /* Hide Scrollbar */
 .no-scrollbar::-webkit-scrollbar {

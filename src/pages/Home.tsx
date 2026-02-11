@@ -4,6 +4,7 @@ import HomeStats from '../components/home/HomeStats';
 import HomeMenuShowcase from '../components/home/HomeMenuShowcase';
 import HomeFeatures from '../components/home/HomeFeatures';
 import HomeGallery from '../components/home/HomeGallery';
+import HomeKitchens from '../components/home/HomeKitchens';
 import HomeSocialProof from '../components/home/HomeSocialProof';
 import HomeCTA from '../components/home/HomeCTA';
 
@@ -12,6 +13,7 @@ export default function Home() {
         <div className="flex flex-col w-full bg-white relative">
             <HomeHero />
             <HomePhilosophy />
+             <HomeKitchens />
             <HomeStats />
             <HomeMenuShowcase />
             <HomeFeatures />

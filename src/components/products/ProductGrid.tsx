@@ -22,6 +22,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-white flex items-center justify-center">
                         <img
                             alt={product.name}
+                            loading="lazy"
                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                             src={product.image}
                         />

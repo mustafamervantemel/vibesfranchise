@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter, Heart, Mail, Phone } from 'lucide-react';
+import { Instagram, Facebook, Heart, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -47,7 +47,9 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4 text-[#E62429]">Bizi Takip Edin</h4>
             <div className="flex justify-center md:justify-end space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/vibessandwich?igsh=YmYybDQzemhzNzkz"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#2A2A2A] hover:bg-[#E62429] p-3 rounded-xl transition-all duration-300 text-white"
                 aria-label="Instagram"
               >
@@ -59,13 +61,6 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook size={22} />
-              </a>
-              <a
-                href="#"
-                className="bg-[#2A2A2A] hover:bg-[#E62429] p-3 rounded-xl transition-all duration-300 text-white"
-                aria-label="Twitter"
-              >
-                <Twitter size={22} />
               </a>
             </div>
           </div>

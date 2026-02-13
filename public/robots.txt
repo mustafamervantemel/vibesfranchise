@@ -1,0 +1,10 @@
+# Vibes Sandwich - robots.txt
+# https://vibessandwich.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://vibessandwich.com/sitemap.xml

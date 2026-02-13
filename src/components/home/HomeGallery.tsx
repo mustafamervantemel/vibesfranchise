@@ -33,6 +33,7 @@ export default function HomeGallery() {
                             <img
                                 src={item.image}
                                 alt={item.name}
+                                loading="lazy"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
 

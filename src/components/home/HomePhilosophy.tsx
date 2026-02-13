@@ -86,8 +86,9 @@ export default function HomePhilosophy() {
                         <div className="absolute inset-0 bg-[#C41E22] rounded-2xl rotate-3 opacity-20 blur-sm"></div>
                         <img
                             src={anasandImg}
+                            loading="lazy"
                             className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
-                            alt="Vibes Philosophy"
+                            alt="Vibes Sandwich el yapımı gourmet sandviç felsefesi"
                         />
                     </div>
                 </div>

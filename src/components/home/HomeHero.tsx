@@ -1,4 +1,4 @@
-import elsanImg from '../../media/elsan.png';
+
 
 export default function HomeHero() {
     return (
@@ -232,14 +232,119 @@ export default function HomeHero() {
                     Sıradanlığa meydan okuyan tarifler, günlük taze ekmekler ve seni kendine getirecek gerçek lezzet. Vibes ile modunu yakala.
                 </p>
 
-                {/* Hands holding sandwich */}
+                {/* Spray-paint style hands holding sandwich - Inline SVG for instant loading */}
                 <div className="relative mt-8 flex justify-center">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#C41E22]/5 blur-[100px] rounded-full"></div>
-                    <img
-                        alt="Vibes Sandwich"
-                        className="relative w-[70vw] sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px] h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                        src={elsanImg}
-                    />
+                    <svg
+                        className="relative w-[75vw] sm:w-[380px] md:w-[440px] lg:w-[500px] xl:w-[560px] h-auto drop-shadow-xl hover:scale-105 transition-transform duration-500"
+                        viewBox="0 0 500 400"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-label="İki el arasında tutulan sandviç çizimi"
+                    >
+                        <defs>
+                            <filter id="spray-main">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" result="noise" />
+                                <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" />
+                            </filter>
+                        </defs>
+
+                        <g style={{ filter: 'url(#spray-main)' }}>
+                            {/* === SOL EL === */}
+                            {/* Sol bilek */}
+                            <path d="M60,380 Q55,350 65,310 Q70,290 75,275" stroke="#C41E22" strokeWidth="5" fill="none" strokeLinecap="round" />
+                            <path d="M90,380 Q85,350 90,310 Q92,290 95,275" stroke="#C41E22" strokeWidth="5" fill="none" strokeLinecap="round" />
+                            {/* Sol avuç içi */}
+                            <path d="M65,280 Q60,260 70,245 Q80,235 100,240 Q105,260 95,275 Q85,285 75,280Z" fill="#C41E22" opacity="0.85" />
+                            {/* Sol başparmak */}
+                            <path d="M65,260 Q50,245 45,230 Q42,220 50,215 Q58,213 62,220 Q65,230 68,245" stroke="#C41E22" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+                            {/* Sol parmaklar - sandvici kavrayan */}
+                            <path d="M72,245 Q68,225 70,210 Q72,200 78,198 Q84,198 85,208 Q86,220 85,235" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M85,240 Q83,218 85,205 Q87,195 93,193 Q99,194 100,204 Q100,218 98,235" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M98,240 Q97,222 100,210 Q102,200 108,199 Q113,200 114,210 Q113,225 110,238" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M110,242 Q112,228 115,218 Q118,210 123,210 Q127,212 126,222 Q124,232 120,242" stroke="#C41E22" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+                            {/* Sol tırnak detayları (oje) */}
+                            <ellipse cx="74" cy="200" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="90" cy="195" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="106" cy="200" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="120" cy="212" rx="3.5" ry="4.5" fill="#C41E22" />
+                            <ellipse cx="49" cy="216" rx="3.5" ry="4.5" fill="#C41E22" />
+
+                            {/* === SAĞ EL === */}
+                            {/* Sağ bilek */}
+                            <path d="M410,380 Q415,350 405,310 Q400,290 395,275" stroke="#C41E22" strokeWidth="5" fill="none" strokeLinecap="round" />
+                            <path d="M440,380 Q435,350 430,310 Q428,290 425,275" stroke="#C41E22" strokeWidth="5" fill="none" strokeLinecap="round" />
+                            {/* Sağ avuç içi */}
+                            <path d="M405,280 Q410,260 400,245 Q390,235 370,240 Q365,260 375,275 Q385,285 395,280Z" fill="#C41E22" opacity="0.85" />
+                            {/* Sağ başparmak */}
+                            <path d="M405,260 Q420,245 425,230 Q428,220 420,215 Q412,213 408,220 Q405,230 402,245" stroke="#C41E22" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+                            {/* Sağ parmaklar */}
+                            <path d="M398,245 Q402,225 400,210 Q398,200 392,198 Q386,198 385,208 Q384,220 385,235" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M385,240 Q387,218 385,205 Q383,195 377,193 Q371,194 370,204 Q370,218 372,235" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M372,240 Q373,222 370,210 Q368,200 362,199 Q357,200 356,210 Q357,225 360,238" stroke="#C41E22" strokeWidth="4" fill="none" strokeLinecap="round" />
+                            <path d="M360,242 Q358,228 355,218 Q352,210 347,210 Q343,212 344,222 Q346,232 350,242" stroke="#C41E22" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+                            {/* Sağ tırnak detayları (oje) */}
+                            <ellipse cx="396" cy="200" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="380" cy="195" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="364" cy="200" rx="4" ry="5" fill="#C41E22" />
+                            <ellipse cx="350" cy="212" rx="3.5" ry="4.5" fill="#C41E22" />
+                            <ellipse cx="421" cy="216" rx="3.5" ry="4.5" fill="#C41E22" />
+
+                            {/* === SANDVİÇ === */}
+                            {/* Üst ekmek (kabarık) */}
+                            <path d="M100,200 Q100,130 250,115 Q400,130 400,200 Q390,210 250,208 Q110,210 100,200Z" fill="#C41E22" opacity="0.95" />
+                            {/* Ekmek çizgileri */}
+                            <path d="M150,150 Q200,138 280,140 Q340,145 370,158" stroke="#f0ece4" strokeWidth="2" fill="none" opacity="0.3" strokeLinecap="round" />
+                            <path d="M140,168 Q200,155 300,157 Q360,162 380,175" stroke="#f0ece4" strokeWidth="1.5" fill="none" opacity="0.25" strokeLinecap="round" />
+                            {/* Susam taneleri */}
+                            <ellipse cx="175" cy="148" rx="5" ry="3" fill="#f0ece4" opacity="0.4" transform="rotate(-25 175 148)" />
+                            <ellipse cx="220" cy="138" rx="5" ry="3" fill="#f0ece4" opacity="0.4" transform="rotate(10 220 138)" />
+                            <ellipse cx="270" cy="135" rx="5" ry="3" fill="#f0ece4" opacity="0.4" transform="rotate(-10 270 135)" />
+                            <ellipse cx="320" cy="142" rx="5" ry="3" fill="#f0ece4" opacity="0.4" transform="rotate(20 320 142)" />
+                            <ellipse cx="200" cy="160" rx="4" ry="2.5" fill="#f0ece4" opacity="0.35" transform="rotate(-15 200 160)" />
+                            <ellipse cx="300" cy="155" rx="4" ry="2.5" fill="#f0ece4" opacity="0.35" transform="rotate(5 300 155)" />
+
+                            {/* Marul yaprakları (dalgalı) */}
+                            <path d="M95,210 Q120,195 155,205 Q190,192 225,203 Q260,190 295,200 Q330,188 365,198 Q395,192 410,210" stroke="#C41E22" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.7" />
+                            <path d="M100,215 Q135,202 165,212 Q200,200 235,210 Q270,198 305,208 Q340,196 375,206 Q395,200 405,215" stroke="#C41E22" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.5" />
+
+                            {/* Domates dilimleri */}
+                            <circle cx="160" cy="222" r="14" fill="#C41E22" opacity="0.5" />
+                            <circle cx="250" cy="220" r="16" fill="#C41E22" opacity="0.5" />
+                            <circle cx="340" cy="222" r="14" fill="#C41E22" opacity="0.5" />
+                            {/* Domates iç çizgileri */}
+                            <path d="M153,222 L167,222 M160,215 L160,229" stroke="#f0ece4" strokeWidth="1" opacity="0.25" />
+                            <path d="M242,220 L258,220 M250,212 L250,228" stroke="#f0ece4" strokeWidth="1" opacity="0.25" />
+                            <path d="M333,222 L347,222 M340,215 L340,229" stroke="#f0ece4" strokeWidth="1" opacity="0.25" />
+
+                            {/* Et / sucuk katmanı */}
+                            <rect x="108" y="230" width="285" height="20" rx="5" fill="#C41E22" opacity="0.7" />
+                            {/* Et kıvrımları */}
+                            <path d="M120,232 Q140,228 160,233 Q180,228 200,233 Q220,228 240,233 Q260,228 280,233 Q300,228 320,233 Q340,228 360,233 Q375,230 385,235" stroke="#f0ece4" strokeWidth="1.5" fill="none" opacity="0.2" strokeLinecap="round" />
+
+                            {/* Peynir (üçgen sarkan) */}
+                            <path d="M115,250 L135,250 L125,270 Z" fill="#C41E22" opacity="0.45" />
+                            <path d="M200,250 L225,250 L212,272 Z" fill="#C41E22" opacity="0.45" />
+                            <path d="M300,250 L325,250 L312,268 Z" fill="#C41E22" opacity="0.45" />
+                            <path d="M370,250 L390,250 L380,265 Z" fill="#C41E22" opacity="0.45" />
+
+                            {/* Alt ekmek */}
+                            <path d="M105,250 Q110,265 250,270 Q390,265 395,250 Q395,245 250,248 Q105,245 105,250Z" fill="#C41E22" opacity="0.85" />
+
+                            {/* ===  DAMLALAR (sprey boya efekti) === */}
+                            <path d="M130,270 Q128,285 132,300 Q133,308 130,312" stroke="#C41E22" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.25" />
+                            <path d="M250,272 Q248,290 252,310" stroke="#C41E22" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.2" />
+                            <path d="M370,268 Q372,280 370,292" stroke="#C41E22" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.2" />
+
+                            {/* Sprey boya sıçrama noktaları */}
+                            <circle cx="140" cy="195" r="2" fill="#C41E22" opacity="0.15" />
+                            <circle cx="360" cy="198" r="1.5" fill="#C41E22" opacity="0.15" />
+                            <circle cx="115" cy="250" r="1.5" fill="#C41E22" opacity="0.2" />
+                            <circle cx="385" cy="248" r="2" fill="#C41E22" opacity="0.2" />
+                            <circle cx="200" cy="278" r="1" fill="#C41E22" opacity="0.15" />
+                            <circle cx="310" cy="280" r="1.5" fill="#C41E22" opacity="0.15" />
+                        </g>
+                    </svg>
                 </div>
             </div>
 

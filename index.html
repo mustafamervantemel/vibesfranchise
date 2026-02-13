@@ -1,25 +1,155 @@
 <!doctype html>
-<html lang="tr" class="dark">
+<html lang="tr">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibes Sandwich Franchise Landing Page</title>
-  <meta property="og:image" content="https://bolt.new/static/og_default.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary Meta Tags -->
+  <title>Vibes Sandwich | Sıradanlığa Meydan Oku - El Yapımı Gourmet Sandviçler</title>
+  <meta name="title" content="Vibes Sandwich | Sıradanlığa Meydan Oku - El Yapımı Gourmet Sandviçler" />
+  <meta name="description"
+    content="Vibes Sandwich ile sıradanlığa meydan oku! Ekşi mayalı ekmek, taze malzemeler ve özel soslarla hazırlanan el yapımı gourmet sandviçler. Kadıköy ve Çekmeköy'de. Hemen sipariş ver!" />
+  <meta name="keywords"
+    content="sandviç, sandwich, gourmet sandviç, el yapımı sandviç, ekşi mayalı ekmek, Kadıköy sandviç, Çekmeköy sandviç, İstanbul sandviç, vibes sandwich, taze sandviç, özel sos, franchise, fast food, hızlı yemek, online sipariş" />
+  <meta name="author" content="Vibes Sandwich" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://vibessandwich.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vibessandwich.com/" />
+  <meta property="og:title" content="Vibes Sandwich | Sıradanlığa Meydan Oku" />
+  <meta property="og:description"
+    content="El yapımı gourmet sandviçler, ekşi mayalı ekmekler ve özel soslar. Kadıköy ve Çekmeköy'de Vibes farkıyla!" />
+  <meta property="og:image" content="https://vibessandwich.com/favicon-512x512.png" />
+  <meta property="og:image:alt" content="Vibes Sandwich Logo" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Vibes Sandwich" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
-  <!-- Google Fonts - Pacifico for logo text -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="twitter:url" content="https://vibessandwich.com/" />
+  <meta name="twitter:title" content="Vibes Sandwich | Sıradanlığa Meydan Oku" />
+  <meta name="twitter:description"
+    content="El yapımı gourmet sandviçler, ekşi mayalı ekmekler ve özel soslar. Kadıköy ve Çekmeköy'de Vibes farkıyla!" />
+  <meta name="twitter:image" content="https://vibessandwich.com/favicon-512x512.png" />
+
+  <!-- Geo & Language -->
+  <meta name="geo.region" content="TR-34" />
+  <meta name="geo.placename" content="İstanbul" />
+  <meta name="geo.position" content="41.024;29.18" />
+  <meta name="ICBM" content="41.024, 29.18" />
+  <meta name="language" content="Turkish" />
+  <meta name="content-language" content="tr" />
+
+  <!-- Structured Data - Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Vibes Sandwich",
+    "alternateName": "Vibes Sandwich Çekmeköy",
+    "url": "https://vibessandwich.com",
+    "logo": "https://vibessandwich.com/favicon-512x512.png",
+    "image": "https://vibessandwich.com/favicon-512x512.png",
+    "description": "El yapımı gourmet sandviçler, ekşi mayalı ekmekler ve özel soslarla hazırlanan premium lezzetler.",
+    "telephone": "+905550123456",
+    "email": "hello@vibessandwich.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mehmet Akif, Günyamaç Cd.",
+      "addressLocality": "Çekmeköy",
+      "addressRegion": "İstanbul",
+      "postalCode": "34782",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.024,
+      "longitude": 29.18
+    },
+    "servesCuisine": ["Sandviç", "Fast Food", "Gourmet"],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "22:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/vibessandwich",
+      "https://www.facebook.com/vibessandwich"
+    ],
+    "hasMenu": "https://vibessandwich.com/products",
+    "acceptsReservations": "false",
+    "currenciesAccepted": "TRY"
+  }
+  </script>
+
+  <!-- Structured Data - WebSite (for Google Search box) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Vibes Sandwich",
+    "url": "https://vibessandwich.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://vibessandwich.com/products?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Structured Data - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vibes Sandwich",
+    "url": "https://vibessandwich.com",
+    "logo": "https://vibessandwich.com/favicon-512x512.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+905550123456",
+      "contactType": "customer service",
+      "areaServed": "TR",
+      "availableLanguage": "Turkish"
+    }
+  }
+  </script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- Google Fonts - Preloaded for performance -->
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&family=Pacifico&family=Pirata+One&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
+
   <!-- Iconify -->
-  <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js" defer></script>
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#C41E22" />
+  <meta name="msapplication-TileColor" content="#C41E22" />
 </head>
 
-<body class="bg-[#0A0A0A]">
+<body class="bg-white">
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

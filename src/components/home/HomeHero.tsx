@@ -229,7 +229,7 @@ export default function HomeHero() {
 
                 {/* Description */}
                 <p className="text-base sm:text-lg md:text-xl text-[#1A1A1A]/60 max-w-lg font-medium mt-4 font-sans">
-                    Sıradanlığa meydan okuyan tarifler, günlük taze ekmekler ve seni kendine getirecek gerçek lezzet. Vibes ile modunu yakala.
+                    Sıradnlığa meydan okuyan tarifler, günlük taze ekmekler ve seni kendine getirecek gerçek lezzet. Vibes ile modunu yakala.
                 </p>
 
                 {/* Spray-paint style hands holding sandwich - Inline SVG for instant loading */}

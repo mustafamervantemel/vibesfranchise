@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import Hero from '../components/Hero';
+import FranchiseHero from '../components/franchise/FranchiseHero';
 import ApplicationForm from '../components/franchise/ApplicationForm';
 
 export default function Franchise() {
@@ -8,7 +8,7 @@ export default function Franchise() {
     // We can keep the ref for potential scrolling if needed, but for now just rendering the components
     return (
         <>
-            <Hero />
+            <FranchiseHero />
             <div ref={applicationRef} id="application-form">
                 <ApplicationForm />
             </div>

@@ -103,10 +103,10 @@ export default function ApplicationForm() {
             <Send size={16} />
             <span>Hemen Başvurun</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-4">
-            Franchise <span className="text-[#E62429]">Başvuru Formu</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-4 font-serif">
+            Franchise <span className="text-[#E62429] italic">Başvuru Formu</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-xl mx-auto font-sans">
             Formu doldurarak Vibes Sandwich franchise fırsatından yararlanın
           </p>
         </div>

@@ -17,9 +17,9 @@ export default function AboutStory() {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 space-y-6">
-                        <span className="text-[#e5242a] font-bold tracking-wider uppercase text-sm">2018'den Beri</span>
-                        <h2 className="text-4xl font-bold leading-tight text-black">Başlangıç Hikayemiz</h2>
-                        <p className="text-gray-600 text-lg leading-relaxed">
+                        <span className="text-[#e5242a] font-bold tracking-wider uppercase text-sm font-sans">2018'den Beri</span>
+                        <h2 className="text-4xl font-bold leading-tight text-black font-serif">Başlangıç Hikayemiz</h2>
+                        <p className="text-gray-600 text-lg leading-relaxed font-sans">
                             Her şey, sadece karın doyuran değil, ruha da iyi gelen bir sandviç yeme arzusuyla başladı. Sıradan, fabrikasyon öğle yemeklerinden sıkılan kurucularımız, bir ızgara ve bir hayalle küçük bir yemek karavanında yola çıktılar.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">
@@ -31,9 +31,9 @@ export default function AboutStory() {
                 {/* Row 2: Text Left, Image Right */}
                 <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
                     <div className="w-full md:w-1/2 space-y-6">
-                        <span className="text-[#e5242a] font-bold tracking-wider uppercase text-sm">Felsefemiz</span>
-                        <h2 className="text-4xl font-bold leading-tight text-black">Misyonumuz</h2>
-                        <p className="text-gray-600 text-lg leading-relaxed">
+                        <span className="text-[#e5242a] font-bold tracking-wider uppercase text-sm font-sans">Felsefemiz</span>
+                        <h2 className="text-4xl font-bold leading-tight text-black font-serif">Misyonumuz</h2>
+                        <p className="text-gray-600 text-lg leading-relaxed font-sans">
                             Hızlı yemeğin yine de gerçek yemek olması gerektiğine inanıyoruz. Bu, telaffuz edebildiğiniz malzemeler, güneş doğmadan pişirilen ekmekler ve fabrikada değil mutfaklarımızda sıfırdan yapılan soslar demektir.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">

@@ -34,16 +34,16 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     </div>
                     <div className="flex flex-col flex-1 gap-2">
                         <div className="flex justify-between items-start">
-                            <h3 className="text-xl font-bold text-[#181111] group-hover:text-primary transition-colors">
+                            <h3 className="text-xl font-bold text-[#181111] group-hover:text-primary transition-colors font-serif">
                                 {product.name}
                             </h3>
                         </div>
-                        <p className="text-gray-500 text-sm font-medium leading-relaxed">
+                        <p className="text-gray-500 text-sm font-medium leading-relaxed font-sans">
                             {product.description}
                         </p>
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                        <span className="text-xs font-bold uppercase tracking-wider text-gray-400 font-sans">
                             {product.tag}
                         </span>
 

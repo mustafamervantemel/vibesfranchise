@@ -15,10 +15,10 @@ export default function AboutHero() {
 
             {/* Hero Content */}
             <div className="relative z-20 container mx-auto px-6 text-center">
-                <h1 className="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 drop-shadow-md">
+                <h1 className="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 drop-shadow-md font-serif italic">
                     İyi Hisset,<br />Her Isırıkta
                 </h1>
-                <p className="text-white/90 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+                <p className="text-white/90 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
                     Biz sadece bir sandviç dükkanı değiliz; biz bir hareketiz. Öğle yemeğinizi günün en güzel anı yapan ekiple tanışın.
                 </p>
             </div>

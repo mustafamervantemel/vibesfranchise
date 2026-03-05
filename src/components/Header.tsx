@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,13 +19,13 @@ export default function Header() {
       <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-12">
         {/* Left: Logo Area */}
         <div className="flex items-center shrink-0">
-          <Link to="/" className="group flex items-center gap-3">
+          <a href="https://vibessandwich.com" className="group flex items-center gap-3">
             <img
               src="/vibeslogo-photo.png"
               alt="Vibes Sandwich"
               className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
